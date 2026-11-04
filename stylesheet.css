@@ -1,10 +1,43 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 2rem;
+  margin: 0;
+  background: #eee;
+  color: #222;
 }
 
-h1 {
-  color: #2c3e50;
+header {
+  background: #4f86b5;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+main {
+  max-width: 700px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.search-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+#search-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
 }
 
 #search-btn {
@@ -13,10 +46,32 @@ h1 {
   border: none;
   padding: 0.5rem 1.25rem;
   font-weight: bold;
-  border-radius: 3px;
   cursor: pointer;
 }
 
 #search-btn:hover {
   background: #a93226;
+}
+
+h2 {
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+#result h3 {
+  margin: 0.5rem 0 0;
+  text-transform: uppercase;
+}
+
+#result h4 {
+  margin: 0.2rem 0 0.75rem;
+  text-transform: uppercase;
+}
+
+.not-found {
+  color: #c0392b;
+  font-weight: bold;
+  text-transform: uppercase;
 }

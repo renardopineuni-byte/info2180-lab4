@@ -63,10 +63,40 @@ $superheroes = [
   ], 
 ];
 
-?>
+header("Content-Type: text/html; charset=UTF-8");
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+// Read the query param, strip whitespace and any HTML tags
+$query = isset($_GET['query']) ? trim(strip_tags($_GET['query'])) : '';
+
+// Escape helper: everything printed to the page goes through this
+function e($text) {
+  return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+}
+
+// Blank search: return the full list
+if ($query === '') {
+  echo "<ul>\n";
+  foreach ($superheroes as $superhero) {
+    echo "  <li>" . e($superhero['alias']) . "</li>\n";
+  }
+  echo "</ul>";
+  exit;
+}
+
+// Otherwise look for a hero whose name or alias matches (case-insensitive)
+$found = null;
+foreach ($superheroes as $superhero) {
+  if (strcasecmp($query, $superhero['name']) === 0 ||
+      strcasecmp($query, $superhero['alias']) === 0) {
+    $found = $superhero;
+    break;
+  }
+}
+
+if ($found) {
+  echo "<h3>" . e($found['alias']) . "</h3>\n";
+  echo "<h4>" . e($found['name']) . "</h4>\n";
+  echo "<p>" . e($found['biography']) . "</p>";
+} else {
+  echo "<p class=\"not-found\">Superhero not found</p>";
+}

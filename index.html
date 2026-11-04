@@ -2,14 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avengers Character Search</title>
-  <link rel="stylesheet" href="stylesheet.css"/>
+  <link rel="stylesheet" href="stylesheet.css">
   <script src="superheroes.js" defer></script>
 </head>
 <body>
-  <h1>Avengers Character Search</h1>
-  <button id="search-btn">Search</button>
+  <header>
+    <h1>Avengers Character Search</h1>
+  </header>
+
+  <main>
+    <label for="search-input">Search by Full Name or Alias</label>
+    <div class="search-row">
+      <input type="text" id="search-input" placeholder="e.g. Captain America or Steve Rogers">
+      <button id="search-btn" type="button">Search</button>
+    </div>
+
+    <h2>Result</h2>
+    <div id="result"></div>
+  </main>
 </body>
 </html>
